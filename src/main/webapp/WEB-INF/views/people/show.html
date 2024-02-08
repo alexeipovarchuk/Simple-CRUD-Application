@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xlmns="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person</title>
+</head>
+<body>
+<p th:text="${person.getName()}">VALUE</p>
+<p th:text="${person.getId()}">VALUE</p>
+
+<form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+    <input type="submit" value="Edit"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>
+
+<!-- с помощью "a" только GET а с помощью form можно и остальные считать
+action - тот адрес на который будем посылать запрос
+при нажатии на кнопку Delete будет совершаться delete-запрос адрес /people/{id} где вместо id будет вставлен id того текущего человека, на странице которго мы находимся-->

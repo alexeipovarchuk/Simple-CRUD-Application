@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update person</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">
+
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
+
+<!-- здесть нужен именно PATCH, также нужно учитывать что нужно
+использовать thymeleaf написание. Обычный html не поддерживает PATCH
+thymeleaf создаст скрытое поле и внего положит "PATCH" - Поле в Spring читается с пом-ью фильтра
+th:object возьмет person  и значение поля name, которое у него есть и вставит его в поле th:field="*{name}"-->>
