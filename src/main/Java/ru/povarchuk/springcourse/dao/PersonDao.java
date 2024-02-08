@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class PersonDao {
     private static int PEOPLE_COUNT;
-    private List<Person> people;
+    private final List<Person> people;
 
     {
         people = new ArrayList<>();
